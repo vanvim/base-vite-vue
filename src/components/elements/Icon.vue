@@ -62,14 +62,33 @@
             stroke-linejoin="round" />
     </svg>
     <!-- arrow down -->
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" v-if="props.type === ARROW_DOWN">
-        <path d="M18 10L13.0606 14.5932C12.4773 15.1356 11.5227 15.1356 10.9394 14.5932L6 10" :stroke="props.active ? COLOR.primary : COLOR.gray"
-            stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        v-if="props.type === ARROW_DOWN">
+        <path d="M18 10L13.0606 14.5932C12.4773 15.1356 11.5227 15.1356 10.9394 14.5932L6 10"
+            :stroke="props.active ? COLOR.primary : COLOR.gray" stroke-width="1.5" stroke-miterlimit="10"
+            stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+    <!-- hamburger icon -->
+    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"
+        v-if="props.type === HUMBURER">
+        <rect width="30" height="30" rx="2" fill="white" />
+        <path d="M6 10H24" :stroke="COLOR.primary" stroke-width="1.5" stroke-linecap="round" />
+        <path d="M6 15H24" :stroke="COLOR.primary" stroke-width="1.5" stroke-linecap="round" />
+        <path d="M6 20H24" :stroke="COLOR.primary" stroke-width="1.5" stroke-linecap="round" />
+    </svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="9" height="9" viewBox="0 0 9 9" fill="none"  v-if="props.type === NEXT_BREADCRUMB">
+        <path
+            d="M5.66369 8.49996C5.74908 8.50025 5.83344 8.48141 5.91058 8.44483C5.98773 8.40824 6.05569 8.35484 6.10949 8.28855L8.86998 4.8603C8.95405 4.75807 9 4.62983 9 4.49748C9 4.36514 8.95405 4.2369 8.86998 4.13466L6.01233 0.70641C5.91532 0.589726 5.77591 0.516348 5.62478 0.502418C5.47366 0.488488 5.32318 0.535147 5.20647 0.632132C5.08975 0.729116 5.01635 0.868481 5.00242 1.01957C4.98848 1.17065 5.03516 1.32109 5.13217 1.43777L7.68691 4.50034L5.2179 7.56291C5.14801 7.64678 5.10361 7.7489 5.08997 7.85721C5.07632 7.96551 5.09399 8.07546 5.14089 8.17403C5.18778 8.27261 5.26195 8.3557 5.3546 8.41346C5.44725 8.47122 5.55451 8.50124 5.66369 8.49996Z"
+            fill="#9D9D9D" />
+        <path
+            d="M0.663692 8.49996C0.749076 8.50025 0.83344 8.48141 0.910584 8.44483C0.987729 8.40824 1.05569 8.35484 1.10949 8.28855L3.86998 4.8603C3.95405 4.75807 4 4.62983 4 4.49748C4 4.36514 3.95405 4.2369 3.86998 4.13466L1.01233 0.70641C0.915315 0.589726 0.775912 0.516348 0.624784 0.502418C0.473656 0.488488 0.323183 0.535147 0.206467 0.632132C0.0897505 0.729116 0.0163522 0.868481 0.00241828 1.01957C-0.0115156 1.17065 0.0351567 1.32109 0.132168 1.43777L2.68691 4.50034L0.217898 7.56291C0.148009 7.64678 0.103614 7.7489 0.0899663 7.85721C0.0763183 7.96551 0.0939882 8.07546 0.140886 8.17403C0.187783 8.27261 0.261945 8.3557 0.354596 8.41346C0.447248 8.47122 0.55451 8.50124 0.663692 8.49996Z"
+            fill="#9D9D9D" />
     </svg>
 </template>
 <script setup>
 import { COLOR } from '../../utils/theme';
-import { MANAGE_EXAM, CIRCLE, MANAGE_SCHEDULE, MANAGE_COMPANY,ARROW_DOWN } from '../../utils/constant';
+import { MANAGE_EXAM, CIRCLE, MANAGE_SCHEDULE, MANAGE_COMPANY, ARROW_DOWN, HUMBURER ,NEXT_BREADCRUMB} from '../../utils/constant';
 
 const props = defineProps({
     active: {

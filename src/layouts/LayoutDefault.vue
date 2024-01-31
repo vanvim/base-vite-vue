@@ -1,7 +1,7 @@
 <template>
     <div class="content">
         <div class="header">
-            <div @click="toggleSidebar">toggle sidebar</div>
+            <Header @toggleSidebar="toggleSidebar"></Header>
         </div>
         <div class="main-content">
             <div class="main-content__sidebar" id="sidebar">
@@ -14,11 +14,11 @@
     </div>
 </template>
 <script setup>
-import Sidebar from '../components/layout/Sidebar.vue';
+import Sidebar from '@/components/layout/Sidebar.vue';
+import Header from '@/components/layout/Header.vue';
 import { ref, onMounted } from 'vue'
 
 const sidebar = ref(null)
-
 const toggleSidebar = () => {
     var element = document.getElementById("sidebar");
     element.classList.toggle("main-content__sidebar_sm");
@@ -47,11 +47,11 @@ $height_header : 5rem;
     }
 
     &__sidebar_sm {
-        @apply h-full w-[5rem] p-3;
+        @apply h-full w-[4rem] p-3;
     }
 
     &__content {
-        @apply rounded-tl-xl w-full h-full bg-white p-5;
+        @apply rounded-tl-xl w-full h-full bg-white p-8;
     }
 }
 </style>
