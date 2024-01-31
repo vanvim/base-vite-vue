@@ -11,6 +11,7 @@ export const MENU = [
     icon: MANAGE_EXAM,
     key: "manage_exam",
     active :  false,
+    showChild :  false,
     child: [
       {
         title: "menu.exam.child.category",

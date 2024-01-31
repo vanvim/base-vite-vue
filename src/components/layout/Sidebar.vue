@@ -1,20 +1,18 @@
 <template>
     <div>
         <div v-for="(menu, i) in menus" :key="i" class="my-5 text-base font-medium text-black w-full">
-            <div class="flex items-center justify-between" :class="[
-                menu.active && menu?.child && menu?.child.length > 0 ? 'active' : '',
-                menu.active && menu?.child && menu?.child.length == 0 ? 'active-child' : ''
-            ]">
-                <div class="flex items-center cursor-pointer" @click="goToPage(menu)">
+            <div class="flex items-center justify-between pl-2 cursor-pointer item-menu" :class="getClassActive(menu)"
+                @click="goToPage(menu)">
+                <div class="flex items-center">
                     <Icon :type="menu.icon" :active="menu.active" />
-                    <span class="pl-2">{{ t(menu.title) }}</span>
+                    <span class="pl-2" v-if="isShowAll">{{ t(menu.title) }}</span>
                 </div>
-                <div v-if="menu?.child && menu?.child.length > 0">
+                <div v-if="menu?.child && menu?.child.length > 0 && isShowAll">
                     <Icon :type="ARROW_DOWN" :active="menu.active" />
                 </div>
             </div>
-            <div v-if="menu.active">
-                <div v-for="child in menu?.child" class="pl-6 my-5" :class="child.active ? 'active-child' : ''">
+            <div v-show="menu.active && isShowAll">
+                <div v-for="child in menu?.child" class="pl-6 my-5 item-menu" :class="[child.active ? 'active-child' : '']">
                     <div class="flex items-center cursor-pointer" @click="goToPage(child)">
                         <Icon :type="child.icon" :active="child.active" />
                         <span class="pl-2">{{ t(child.title) }}
@@ -22,21 +20,23 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </template>
 <script setup>
 import { MENU } from '../../utils/menu';
-import { ARROW_DOWN, ACTIVE,INACTIVE } from '../../utils/constant';
+import { ARROW_DOWN, ACTIVE, INACTIVE } from '../../utils/constant';
 import { useI18n } from "vue-i18n";
 import Icon from '../elements/Icon.vue';
 import { useRoute, useRouter } from "vue-router"
-import { watchEffect, ref } from 'vue';
+import { watchEffect, ref, defineExpose } from 'vue';
 
 const { t } = useI18n();
 const route = useRoute();
 const router = useRouter();
 const menus = ref(MENU)
+const isShowAll = ref(true)
 
 
 watchEffect(() => {
@@ -57,12 +57,27 @@ watchEffect(() => {
 
 const goToPage = (item) => {
     if (item.child) {
-        item.active = ACTIVE
+        item.active = !item.active
     } else {
         router.push(item.path)
     }
+}
+const getClassActive = (item) => {
+    if (item.active && item?.child && item?.child.length > 0) {
+        return 'active'
+    }
+    if (item.active) {
+        return 'active-child'
+    }
+    return ''
 
 }
+
+const openMenu = () => {
+    isShowAll.value = !isShowAll.value
+}
+defineExpose({ openMenu });
+
 
 </script>
 <style scoped lang="scss">
@@ -73,4 +88,12 @@ const goToPage = (item) => {
 .active-child {
     @apply rounded-xl bg-white text-primary py-2;
 }
+
+.item-menu {
+    transition: height 500ms;
+    :hover {
+        @apply text-primary;
+    }
+}
+
 </style>
