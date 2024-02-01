@@ -11,7 +11,7 @@ const instance = axios.create({
 
 
 // Create a request interceptor for my instance and get accessToken on the fly
-instance.interceptors.request.use(async (config) => {
+instance.interceptors.request.use(async (config :any) => {
     const accessToken = JwtService.getToken()
     config.headers['Authorization'] = `Bearer ${accessToken}`;
 

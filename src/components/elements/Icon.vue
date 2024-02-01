@@ -77,7 +77,8 @@
         <path d="M6 20H24" :stroke="COLOR.primary" stroke-width="1.5" stroke-linecap="round" />
     </svg>
 
-    <svg xmlns="http://www.w3.org/2000/svg" width="9" height="9" viewBox="0 0 9 9" fill="none"  v-if="props.type === NEXT_BREADCRUMB">
+    <svg xmlns="http://www.w3.org/2000/svg" width="9" height="9" viewBox="0 0 9 9" fill="none"
+        v-if="props.type === NEXT_BREADCRUMB">
         <path
             d="M5.66369 8.49996C5.74908 8.50025 5.83344 8.48141 5.91058 8.44483C5.98773 8.40824 6.05569 8.35484 6.10949 8.28855L8.86998 4.8603C8.95405 4.75807 9 4.62983 9 4.49748C9 4.36514 8.95405 4.2369 8.86998 4.13466L6.01233 0.70641C5.91532 0.589726 5.77591 0.516348 5.62478 0.502418C5.47366 0.488488 5.32318 0.535147 5.20647 0.632132C5.08975 0.729116 5.01635 0.868481 5.00242 1.01957C4.98848 1.17065 5.03516 1.32109 5.13217 1.43777L7.68691 4.50034L5.2179 7.56291C5.14801 7.64678 5.10361 7.7489 5.08997 7.85721C5.07632 7.96551 5.09399 8.07546 5.14089 8.17403C5.18778 8.27261 5.26195 8.3557 5.3546 8.41346C5.44725 8.47122 5.55451 8.50124 5.66369 8.49996Z"
             fill="#9D9D9D" />
@@ -85,10 +86,49 @@
             d="M0.663692 8.49996C0.749076 8.50025 0.83344 8.48141 0.910584 8.44483C0.987729 8.40824 1.05569 8.35484 1.10949 8.28855L3.86998 4.8603C3.95405 4.75807 4 4.62983 4 4.49748C4 4.36514 3.95405 4.2369 3.86998 4.13466L1.01233 0.70641C0.915315 0.589726 0.775912 0.516348 0.624784 0.502418C0.473656 0.488488 0.323183 0.535147 0.206467 0.632132C0.0897505 0.729116 0.0163522 0.868481 0.00241828 1.01957C-0.0115156 1.17065 0.0351567 1.32109 0.132168 1.43777L2.68691 4.50034L0.217898 7.56291C0.148009 7.64678 0.103614 7.7489 0.0899663 7.85721C0.0763183 7.96551 0.0939882 8.07546 0.140886 8.17403C0.187783 8.27261 0.261945 8.3557 0.354596 8.41346C0.447248 8.47122 0.55451 8.50124 0.663692 8.49996Z"
             fill="#9D9D9D" />
     </svg>
+
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+        v-if="props.type === LOGOUT">
+        <path
+            d="M15.1001 7.55999C14.7901 3.95999 12.9401 2.48999 8.8901 2.48999H8.7601C4.2901 2.48999 2.5001 4.27999 2.5001 8.74999V15.27C2.5001 19.74 4.2901 21.53 8.7601 21.53H8.8901C12.9101 21.53 14.7601 20.08 15.0901 16.54"
+            stroke="#A1A1A1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M8.99988 12H20.3799" stroke="#A1A1A1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M18.15 8.6499L21.5 11.9999L18.15 15.3499" stroke="#A1A1A1" stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round" />
+    </svg>
+
+    <!-- pen -->
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+        v-if="props.type === PENCIL">
+        <path
+            d="M12.9493 5.12701L6.79017 11.9325C6.5576 12.191 6.33254 12.7 6.28753 13.0524L6.00995 15.5898C5.91243 16.5061 6.5426 17.1326 7.41284 16.976L9.82849 16.5453C10.1661 16.4826 10.6387 16.2242 10.8713 15.9579L17.0305 9.15237C18.0957 7.97766 18.5759 6.63848 16.9179 5.00171C15.2675 3.3806 14.0146 3.95229 12.9493 5.12701Z"
+            stroke="#A1A1A1" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M12 7C12.3156 8.60777 13.9596 9.83689 16 10" stroke="#A1A1A1" stroke-width="1.5" stroke-miterlimit="10"
+            stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M5 20H19" stroke="#A1A1A1" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
+            stroke-linejoin="round" />
+    </svg>
+
+
+    <!-- delete -->
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+        v-if="props.type === DELETE">
+        <path d="M20 6C17.04 6 14.0622 6 11.0933 6C9.33333 6 7.57333 6 5.81333 6H4" stroke="#A1A1A1" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round" />
+        <path
+            d="M9 5L9.18857 4.11785C9.32571 3.47811 9.42857 3 10.8771 3H13.1229C14.5714 3 14.6829 3.50505 14.8114 4.12458L15 5"
+            stroke="#A1A1A1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        <path
+            d="M18 10L17.4307 18.6135C17.3343 19.9565 17.2555 21 14.8117 21H9.18832C6.74453 21 6.66569 19.9565 6.56934 18.6135L6 10"
+            stroke="#A1A1A1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M10.3301 16.5H13.6601" stroke="#A1A1A1" stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round" />
+        <path d="M10 12H14" stroke="#A1A1A1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
 </template>
 <script setup>
 import { COLOR } from '../../utils/theme';
-import { MANAGE_EXAM, CIRCLE, MANAGE_SCHEDULE, MANAGE_COMPANY, ARROW_DOWN, HUMBURER ,NEXT_BREADCRUMB} from '../../utils/constant';
+import { MANAGE_EXAM, CIRCLE, MANAGE_SCHEDULE, MANAGE_COMPANY, ARROW_DOWN, HUMBURER, NEXT_BREADCRUMB, LOGOUT, PENCIL, DELETE } from '../../utils/constant';
 
 const props = defineProps({
     active: {

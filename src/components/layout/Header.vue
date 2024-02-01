@@ -9,13 +9,13 @@
             </div>
         </div>
         <div>
-            <div>
-                <img :src="AvaterDefault" class="max-w-11">
-                <div class="dropdown">
-                    <DropdownProfile/>
+            <div v-click-outside="closeDropdown" class="test">
+                <img :src="AvaterDefault" class="max-w-11 cursor-pointer" @click="showDropdown">
+                <div class="dropdown" v-if="isShow">
+                    <DropdownProfile />
                 </div>
             </div>
-            
+
         </div>
     </div>
 </template>
@@ -25,17 +25,33 @@ import DropdownProfile from '@/components/layout/DropdownProfile.vue';
 import { HUMBURER } from '@/utils/constant';
 import Logo from "@/assets/images/logo.png";
 import AvaterDefault from "@/assets/images/avatar.png";
+import { vClickOutside } from '@/composables/clickOutside.js'
+import { ref } from "vue";
+
+
+const isShow = ref(false)
 
 const emit = defineEmits(["toggleSidebar"]);
 const toggleSidebar = () => {
     emit('toggleSidebar')
 }
+const showDropdown = () => {
+    isShow.value = true
+}
+const closeDropdown = () => {
+    isShow.value = false
+}
+
+
+
+
+
 </script>
 <style  lang="scss">
-.dropdown{
+.dropdown {
     z-index: 107;
     margin: 0;
-    position: fixed ;
+    position: fixed;
     inset: 0 0 auto auto;
     transform: translate(-29px, 68px);
     box-shadow: 0px 0px 50px 0px rgba(82, 63, 105, 0.15);

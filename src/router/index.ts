@@ -21,7 +21,7 @@ const router = createRouter({
     {
       path: "/category",
       name: "ListCategory",
-      component: () => import("../views/auth/Login.vue"),
+      component: () => import("../views/category/List.vue"),
       meta: { layout: "LayoutDefault", key: "category" },
     },
     {
